@@ -1,0 +1,158 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("/static/fonts/montserrat.woff2") format("woff2"),
+    url("/static/fonts/montserrat.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/static/fonts/poppins.woff2") format("woff2"),
+    url("/static/fonts/poppins.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --main-bg-color: #37365f;
+  --main-text-color: #ffffff;
+  --title-text-color: #d8a7a7;
+  --description-text-color: #e5e5e5;
+  --line-bg-color: #973333;
+  --card-bg-color: #1d1c36;
+  --button-bg-color: #4d7694;
+  --circle-fill-color: #161638;
+  --circle-stroke-color: #ff6c6c;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-bg-color: #f5f5f5;
+    --main-text-color: #51454d;
+    --title-text-color: #c37979;
+    --description-text-color: #51454d;
+    --line-bg-color: #973333;
+    --card-bg-color: rgba(0, 0, 0, 0.05);
+    --button-bg-color: #afafaf;
+    --circle-fill-color: #161638;
+    --circle-stroke-color: #ff6c6c;
+  }
+}
+
+* {
+  font-family: "Poppins", "sans-serif", "Apple Color Emoji";
+  color: var(--main-text-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--main-bg-color);
+}
+
+p {
+  margin-top: 20px;
+}
+
+h1 {
+  font-family: "Montserrat", "sans-serif";
+  color: var(--title-text-color);
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+section {
+  height: 100vh;
+  padding: 15vh 8vw;
+}
+
+.description {
+  color: var(--description-text-color);
+}
+
+.line {
+  width: 70px;
+  height: 6px;
+  background-color: var(--line-bg-color);
+  border-radius: 100px;
+}
+
+nav.next_page {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translatex(-50%);
+}
+
+nav.next_page a svg {
+  stroke: var(--main-text-color);
+  width: 50px;
+  height: 50px;
+}
+
+.card {
+  background: var(--card-bg-color);
+  color: var(--h3-text-color);
+  display: block;
+  width: 370px;
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 50px;
+}
+
+.card h3 {
+  text-align: center;
+  color: var(--title-text-color);
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10%;
+}
+
+.card a.button {
+  margin-top: 10px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  text-decoration: none;
+  background: var(--button-bg-color);
+  border-radius: 15px;
+  padding: 10px 15px;
+}
+
+.node circle {
+  cursor: pointer;
+  fill: var(--circle-fill-color);
+  stroke: var(--circle-stroke-color);
+  stroke-width: 2.5px;
+}
+
+.node text {
+  font-size: 17px;
+  fill: var(--main-text-color);
+  font-weight: 600;
+}
+
+path.link {
+  fill: none;
+  stroke: var(--main-text-color);
+  opacity: 20%;
+  stroke-width: 3px;
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 960px) {
+  section {
+    padding: 7vh 8vw;
+  }
+}
