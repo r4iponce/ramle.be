@@ -150,7 +150,7 @@ path.link {
 .contentContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 @media only screen and (max-width: 960px) {

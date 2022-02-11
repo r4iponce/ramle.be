@@ -1,87 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/static/style.css" />
-    <meta name="keywords" content="ramle, réseau, système" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ramle" />
-    <title>Ramle</title>
-    <meta
-      property="og:description"
-      content="Étudiant passioné d'informatique."
-    />
-    <meta name="description" content="Étudiant passioné d'informatique." />
-    <meta property="og:url" content="https://ramle.be/" />
-    <meta property="og:site_name" content="Ramle" />
-    <meta property="og:locale" content="fr_FR" />
-  </head>
-  <body>
-    <section>
-      <div class="contentContainer">
-        <div class="title_desc">
-          <h1>Ramle</h1>
-          <div class="line"></div>
-          <p class="description">Étudiant passioné d'informatique.</p>
-        </div>
-        <div class="graphContainer">
-          <!-- Graph view -->
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <meta name="keywords" content="ramle, réseau, système" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ramle" />
+  <title>Ramle</title>
+  <meta property="og:description" content="Étudiant passioné d'informatique." />
+  <meta name="description" content="Étudiant passioné d'informatique." />
+  <meta property="og:url" content="https://ramle.be/" />
+  <meta property="og:site_name" content="Ramle" />
+  <meta property="og:locale" content="fr_FR" />
+</head>
+
+<body>
+  <section>
+    <div class="contentContainer">
+      <div class="title_desc">
+        <h1>Ramle</h1>
+        <div class="line"></div>
+        <p class="description">Étudiant passioné d'informatique.</p>
       </div>
-      <nav class="next_page">
-        <a href="#page_two">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke=""
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-arrow-down"
-          >
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <polyline points="19 12 12 19 5 12"></polyline>
-          </svg>
-        </a>
-      </nav>
-    </section>
-    <section id="page_two">
+      <div class="graphContainer">
+        <!-- Graph view -->
+      </div>
+    </div>
+    <nav class="next_page">
+      <a href="#page_two">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </a>
+    </nav>
+  </section>
+  <section id="page_two">
+    <div class="contentContainer">
       <div class="title_desc">
         <h1>Projet</h1>
         <div class="line"></div>
-        <div class="cardContainer">
-          <div class="card">
-            <h3>I Learned</h3>
-            <p>
-              Un blog collaboratif de vulgarisation sur des sujets liés à
-              l'informatique
-            </p>
-            <a href="https://ilearned.eu" class="button">Voir ça</a>
-          </div>
-          <div class="card">
-            <h3>Homelab</h3>
-            <p>
-              Plusieurs machines pour experimenter et apprendres le réseau et
-              l'administration système
-            </p>
-            <a href="/homelab.html" class="button">Voir ça</a>
-          </div>
-          <div class="card">
-            <h3>Mon git</h3>
-            <p>Vous pouvez retrouvez mes autres projets sur mon git.</p>
-            <a href="https://gitlab.ilearned.eu/ramle" class="button"
-              >Voir ça</a
-            >
-          </div>
+      </div>
+      <div class="cardContainer">
+        <div class="card">
+          <h3>I Learned</h3>
+          <p>
+            Un blog collaboratif de vulgarisation sur des sujets liés à
+            l'informatique
+          </p>
+          <a href="https://ilearned.eu" class="button">Voir ça</a>
+        </div>
+        <div class="card">
+          <h3>Homelab</h3>
+          <p>
+            Plusieurs machines pour experimenter et apprendres le réseau et
+            l'administration système
+          </p>
+          <a href="/homelab.html" class="button">Voir ça</a>
+        </div>
+        <div class="card">
+          <h3>Mon git</h3>
+          <p>Vous pouvez retrouvez mes autres projets sur mon git.</p>
+          <a href="https://gitlab.ilearned.eu/ramle" class="button">Voir ça</a>
         </div>
       </div>
-    </section>
-  </body>
-  <script src="/static/js/d3.js"></script>
-  <script src="/static/js/arf.js"></script>
+    </div>
+  </section>
+</body>
+<script src="/static/js/d3.js"></script>
+<script src="/static/js/arf.js"></script>
+
 </html>
