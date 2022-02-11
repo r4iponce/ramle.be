@@ -36,4 +36,4 @@ prod-deploy-job:
   only:
     - master
   tags:
-    - ADM64
+    - AMD64
