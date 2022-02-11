@@ -1,6 +1,5 @@
 default:
   image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
-  tag: AMD64
 
 stages:
   - lint
