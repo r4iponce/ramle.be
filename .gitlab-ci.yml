@@ -32,5 +32,8 @@ prod-deploy-job:
     - chmod 600 ~/.ssh/id_ed25519
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - rsync -az --exclude=".git*" --delete -e "ssh -p 53453 -i ~/.ssh/id_ed25519" ./ ci@web.ramle.be:/var/www/ramle.be
+
   only:
     - master
+  tags:
+    - ADM64
