@@ -113,7 +113,8 @@ nav.next_page a svg {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 10%;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
 .card a.button {
