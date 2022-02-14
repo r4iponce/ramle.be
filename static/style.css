@@ -157,9 +157,9 @@ path.link {
 }
 
 img {
- border-radius: 110px;
- box-shadow: var(--cta-shadow);
- margin-top: 30px;
+  border-radius: 110px;
+  box-shadow: var(--cta-shadow);
+  margin-top: 30px;
 }
 
 img:hover {
