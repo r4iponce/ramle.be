@@ -25,6 +25,7 @@
   --button-bg-color: #4d7694;
   --circle-fill-color: #161638;
   --circle-stroke-color: #ff6c6c;
+  --cta-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
 }
 
 @media (prefers-color-scheme: light) {
@@ -38,6 +39,7 @@
     --button-bg-color: #afafaf;
     --circle-fill-color: #161638;
     --circle-stroke-color: #ff6c6c;
+    --cta-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -154,8 +156,23 @@ path.link {
   justify-content: space-between;
 }
 
+img {
+ border-radius: 110px;
+ box-shadow: var(--cta-shadow);
+ margin-top: 30px;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
 @media only screen and (max-width: 960px) {
   section {
     padding: 7vh 8vw;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 30px;
   }
 }
