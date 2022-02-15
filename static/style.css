@@ -180,7 +180,6 @@ img:hover {
 
 #translationContainer {
   background: var(--card-bg-color);
-  border-radius: 5px;
   color: var(--main-text-color);
   width: max-content;
   float: right;
