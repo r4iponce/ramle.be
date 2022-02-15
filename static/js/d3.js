@@ -16,10 +16,6 @@ d3 = (function () {
       t.prototype = n;
     }
   }
-  function r(t) {
-    for (var n = -1, e = t.length, r = []; e > ++n; ) r.push(t[n]);
-    return r;
-  }
   function u(t) {
     return Array.prototype.slice.call(t);
   }
