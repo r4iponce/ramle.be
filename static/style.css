@@ -107,7 +107,6 @@ nav.next_page a svg {
   box-shadow: var(--cta-shadow);
 }
 
-
 .card h3 {
   text-align: center;
   color: var(--title-text-color);
@@ -162,7 +161,7 @@ img {
   border-radius: 110px;
   box-shadow: var(--cta-shadow);
   margin-top: 30px;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 img:hover {
@@ -171,7 +170,7 @@ img:hover {
 
 .card:hover {
   transform: scale(1.1);
-  transition: .2s;
+  transition: 0.2s;
 }
 
 @media only screen and (max-width: 960px) {
