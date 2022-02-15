@@ -1,14 +1,14 @@
 if (window.innerWidth < 640) {
   var margin = [20, 120, 20, 140],
     width = 800 - margin[1] - margin[3],
-    height = 300 - margin[0] - margin[2],
+    height = window.innerHeight / 1.8,
     i = 0,
     duration = 350,
     root;
 } else {
   var margin = [20, 120, 20, 140],
     width = 800 - margin[1] - margin[3],
-    height = 300 - margin[0] - margin[2],
+    height = window.innerHeight / 1.7,
     i = 0,
     duration = 350,
     root;
