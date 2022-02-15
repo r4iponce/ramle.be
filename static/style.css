@@ -100,7 +100,10 @@ nav.next_page a svg {
 .card {
   background: var(--card-bg-color);
   color: var(--h3-text-color);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
   width: 370px;
   border-radius: 20px;
   padding: 25px;
@@ -111,6 +114,7 @@ nav.next_page a svg {
 .button {
   text-align: center;
   color: var(--button-text-color);
+  width: 100px;
 }
 
 .cardContainer {
