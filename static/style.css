@@ -26,6 +26,7 @@
   --circle-fill-color: #161638;
   --circle-stroke-color: #ff6c6c;
   --cta-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
+    --main-cta-high-contrast-color: #9d81cc;
 }
 
 @media (prefers-color-scheme: light) {
@@ -171,6 +172,46 @@ img:hover {
 .card:hover {
   transform: scale(1.1);
   transition: 0.2s;
+}
+
+#translationContainer {
+  background: var(--card-bg-color);
+  border-radius: 5px;
+  color: var(--main-text-color);
+  width: max-content;
+  float: right;
+  position: absolute;
+  top: 90px;
+  right: 80px;
+  padding: 25px 25px;
+  box-shadow: var(--cta-shadow);
+  display: none;
+  z-index: 100;
+  border-radius: 30px;
+}
+
+#translationContainer h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#translationContainer a {
+  display: block;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+#translationContainer a:hover {
+  color: var(--main-cta-high-contrast-color);
+}
+
+#translateIcon {
+  float: right;
+  margin: 30px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
 }
 
 @media only screen and (max-width: 960px) {
