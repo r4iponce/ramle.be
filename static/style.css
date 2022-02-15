@@ -16,6 +16,7 @@
 }
 
 :root {
+  --line-bg-color: #973333;
   --main-bg-color: #37365f;
   --main-text-color: #ffffff;
   --title-text-color: #d8a7a7;
@@ -34,7 +35,6 @@
     --main-text-color: #51454d;
     --title-text-color: #c37979;
     --description-text-color: #51454d;
-    --line-bg-color: #973333;
     --card-bg-color: rgba(0, 0, 0, 0.05);
     --button-bg-color: #afafaf;
     --circle-fill-color: #161638;
