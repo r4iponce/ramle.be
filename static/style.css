@@ -20,13 +20,12 @@
   --main-text-color: #ffffff;
   --title-text-color: #d8a7a7;
   --description-text-color: #e5e5e5;
-  --line-bg-color: #973333;
   --card-bg-color: #1d1c36;
   --button-bg-color: #4d7694;
   --circle-fill-color: #161638;
   --circle-stroke-color: #ff6c6c;
   --cta-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
-    --main-cta-high-contrast-color: #9d81cc;
+  --main-cta-high-contrast-color: #9d81cc;
 }
 
 @media (prefers-color-scheme: light) {
