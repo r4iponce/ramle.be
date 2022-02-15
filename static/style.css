@@ -104,7 +104,9 @@ nav.next_page a svg {
   border-radius: 20px;
   padding: 25px;
   margin-top: 50px;
+  box-shadow: var(--cta-shadow);
 }
+
 
 .card h3 {
   text-align: center;
@@ -160,10 +162,16 @@ img {
   border-radius: 110px;
   box-shadow: var(--cta-shadow);
   margin-top: 30px;
+  transition: .2s;
 }
 
 img:hover {
   transform: scale(1.1);
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: .2s;
 }
 
 @media only screen and (max-width: 960px) {
