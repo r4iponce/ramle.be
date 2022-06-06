@@ -1,0 +1,11 @@
+.description {
+  line-height: 30px;
+  margin-bottom: 60px;
+  background: var(--card-bg-color);
+  color: var(--title-text-color);
+  width: 65vh;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: var(--cta-shadow);
+  margin-bottom: 40px;
+}
