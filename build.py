@@ -20,7 +20,7 @@ def compile_sass() -> None:
 
 
 def render_all() -> None:
-    with open("./data.yml", 'r') as data:
+    with open("./data.yml", 'r', encoding="utf-8") as data:
         try:
             data = yaml.safe_load(data)
             env = Environment(loader=FileSystemLoader('templates/'))
