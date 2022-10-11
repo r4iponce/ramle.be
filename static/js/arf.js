@@ -216,7 +216,7 @@ function toggle(d) {
     }
 }
 
-const target = document.querySelector('.graphContainer');
+const target = document.querySelector('.graph-container');
 
 function handleIntersection(entries) {
     entries.map((entry) => {

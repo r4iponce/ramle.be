@@ -1,4 +1,4 @@
-@import '_var', '_fonts', '_reset', 'graph';
+@import "var", "fonts", "reset", "graph";
 
 body {
     font-family: Poppins, serif;
@@ -8,21 +8,8 @@ body {
     color: $grey-light;
 }
 
-main {
-    display: flex;
-    flex-wrap: wrap;
-
-    h2:hover {
-        transform: scale(1.01);
-    }
-
-    div {
-        max-width: var(--div-width);
-    }
-
-}
-
-h1, h2 {
+h1,
+h2 {
     font-weight: $font-medium-weight;
     padding-bottom: 2px;
 }
@@ -34,6 +21,19 @@ h1 {
 
 h2 {
     font-size: var(--h2-font-size);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+        max-width: var(--div-width);
+    }
+
+    h2:hover {
+        transform: scale(1.01);
+    }
 }
 
 p {
@@ -73,13 +73,11 @@ footer {
         transform: translateX(3px) translateY(4px);
         box-shadow: none;
     }
-
 }
 
 // desktop
 @media screen and (min-width: 768px) {
     main {
-
         div.left {
             justify-content: left;
         }
@@ -87,6 +85,5 @@ footer {
         div.right {
             justify-content: right;
         }
-
     }
 }
