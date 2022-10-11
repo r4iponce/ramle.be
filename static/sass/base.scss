@@ -2,7 +2,7 @@
 
 body {
     font-family: Poppins, serif;
-    font-weight: 400;
+    font-weight: $font-regular-weight;
     background-color: $bg-light;
     margin: var(--margin);
     color: $grey-light;
@@ -10,15 +10,20 @@ body {
 
 main {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+
+    h2:hover {
+        transform: scale(1.01);
+    }
 
     div {
         max-width: var(--div-width);
     }
+
 }
 
 h1, h2 {
-    font-weight: 500;
+    font-weight: $font-medium-weight;
     padding-bottom: 2px;
 }
 
@@ -29,7 +34,6 @@ h1 {
 
 h2 {
     font-size: var(--h2-font-size);
-    font-weight: 500;
 }
 
 p {
@@ -42,7 +46,8 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    transform: scale(1.05);
 }
 
 footer {
@@ -50,7 +55,7 @@ footer {
     justify-content: center;
 
     div {
-        margin: 30px;
+        margin: var(--footer-div-margin);
         background-color: $purple-light;
         border-radius: 10px;
         width: 60px;
@@ -71,3 +76,17 @@ footer {
 
 }
 
+// desktop
+@media screen and (min-width: 768px) {
+    main {
+
+        div.left {
+            justify-content: left;
+        }
+
+        div.right {
+            justify-content: right;
+        }
+
+    }
+}
