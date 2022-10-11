@@ -1,4 +1,14 @@
-- uses: actions-hub/stylelint@master
-  env:
-    INDENT_SPACES: 4
-    PATTERN: "*.scss"
+name: Stylelint
+on: [ push ]
+
+jobs:
+    linters:
+        name: stylelint
+        runs-on: ubuntu-latest
+
+        steps:
+            -   uses: actions/checkout@v1
+            -   uses: actions-hub/stylelint@master
+                env:
+                    PATTERN: "*.scss"
+                    INDENT_SPACES: 4
