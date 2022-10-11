@@ -11,4 +11,3 @@ jobs:
             -   uses: actions-hub/stylelint@master
                 env:
                     PATTERN: "static/sass/*.scss"
-                    INDENT_SPACES: 4
