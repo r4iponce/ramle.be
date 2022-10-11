@@ -1,6 +1,12 @@
-name: Build
+name: Build and deploy
 
-on: [ push ]
+on:
+    push:
+        branches:
+            - master
+
+permissions:
+    pages: write
 
 jobs:
     build:
@@ -21,10 +27,7 @@ jobs:
             -   name: Build
                 run: |
                     make build
-            -   name: 'Upload build result'
-                uses: actions/upload-artifact@v3
+            -   name: Deploy pages
+                uses: JamesIves/github-pages-deploy-action@v4
                 with:
-                    name: build-result
-                    path: output/
-                    retention-days: 5
-
+                    folder: output/
