@@ -16,7 +16,6 @@ jobs:
                     python-version: ${{ matrix.python-version }}
             -   name: Install dependencies
                 run: |
-                    cp .env.example .env
                     python -m pip install --upgrade pip
                     pip install -r requirements.txt
             -   name: Analysing the code with pylint
