@@ -1,0 +1,7 @@
+<section id="projects">
+    <h1>Projects</h1>
+    {% for project in projects %}
+    <h2><a href="{{ projects[project].url }}">{{ projects[project].name }}</a></h2>
+    <p>{{ projects[project].description }}</p>
+    {% endfor %}
+</section>

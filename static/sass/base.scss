@@ -1,0 +1,73 @@
+@import '_var', '_fonts', '_reset', 'graph';
+
+body {
+    font-family: Poppins, serif;
+    font-weight: 400;
+    background-color: $bg-light;
+    margin: var(--margin);
+    color: $grey-light;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        max-width: var(--div-width);
+    }
+}
+
+h1, h2 {
+    font-weight: 500;
+    padding-bottom: 2px;
+}
+
+h1 {
+    color: $purple-light;
+    font-size: var(--h1-font-size);
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+}
+
+p {
+    font-size: var(--p-font-size);
+    padding-bottom: 4px;
+}
+
+a {
+    color: $grey-light;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+
+    div {
+        margin: 30px;
+        background-color: $purple-light;
+        border-radius: 10px;
+        width: 60px;
+        height: 60px;
+        box-shadow: $grey-light 0 4px 12px;
+
+        svg {
+            margin: 50% 0 0 50%;
+            transform: translate(-50%, -50%);
+            color: $grey-light;
+        }
+    }
+
+    div:hover {
+        transform: translateX(3px) translateY(4px);
+        box-shadow: none;
+    }
+
+}
+

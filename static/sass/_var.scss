@@ -1,0 +1,25 @@
+$grey-light: #494848;
+$purple-light: #9A4582;
+$bg-light: #F5EDE9;
+
+//mobile
+:root {
+    --margin: 25px;
+    --margin-top: 15px;
+    --h1-font-size: 36px;
+    --h2-font-size: 22px;
+    --p-font-size: 18px;
+    --div-width: 80%;
+}
+
+// desktop
+@media screen and (min-width: 768px) {
+    :root {
+        --margin: 100px;
+        --margin-top: 60px;
+        --div-width: 40%;
+    }
+}
+
+// desktop large
+//@media only screen and (min-width: 1280px)

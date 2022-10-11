@@ -1,0 +1,14 @@
+projects:
+    title: "Projects"
+    ilearned:
+        name: "I Learned"
+        url: "https://ilearned.eu"
+        description: "I learned is a collaborative blog popularizing topics related to networking, Linux, cybersecurity and informatics in general."
+    homelab:
+        name: "HomeLab"
+        description: "Several machines for experiment and learn network and system administration."
+        url: "https://about.r4.pm"
+    git:
+        name: "Git"
+        description: "You can find other project on my gitlab."
+        url: "https://gitlab.ilearned.eu/elmar"
