@@ -6,7 +6,7 @@ on:
             - master
 
 permissions:
-    pages: write
+    contents: write
 
 jobs:
     build:
