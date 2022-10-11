@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elmar</title>
+    <link rel="stylesheet" href="static/css/base.css">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <link rel="preload" href="/static/fonts/poppins-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/static/fonts/poppins-medium.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+<main>
+    <div class="left">
+        {% include 'about.html' %} {% include 'projects.html' %}
+    </div>
+    <div class="right">
+        {% include 'skill.html' %}
+    </div>
+</main>
+<footer>
+    {% include "contact.html" %}
+</footer>
+</body>
+<script src="/static/js/d3.js" charset="utf-8"></script>
+<script src="/static/js/arf.js" charset="utf-8"></script>
+</html>

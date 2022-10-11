@@ -1,0 +1,132 @@
+{
+    "children": [
+        {
+            "children": [
+                {
+                    "name": "Secure Boot",
+                    "type": "skill"
+                }
+            ],
+            "name": "Sécurité",
+            "type": "folder"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "name": "BGP",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "Statique",
+                            "type": "skill"
+                        }
+                    ],
+                    "name": "Routage",
+                    "type": "folder"
+                },
+                {
+                    "children": [
+                        {
+                            "name": "Nginx",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "HAProxy",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "Apache",
+                            "type": "skill"
+                        }
+                    ],
+                    "name": "Reverse Proxy",
+                    "type": "skill"
+                },
+                {
+                    "children": [
+                        {
+                            "name": "DNSSEC",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "Résolveur",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "autoritaire",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "AXFR/IXFR",
+                            "type": "skill"
+                        }
+                    ],
+                    "name": "DNS",
+                    "type": "folder"
+                },
+                {
+                    "name": "IPv6",
+                    "type": "skill"
+                },
+                {
+                    "name": "NAT/PAT",
+                    "type": "skill"
+                },
+                {
+                    "name": "VLAN",
+                    "type": "skill"
+                }
+            ],
+            "name": "Réseau",
+            "type": "folder"
+        },
+        {
+            "children": [
+                {
+                    "name": "Permission",
+                    "type": "skill"
+                },
+                {
+                    "name": "systemd",
+                    "type": "skill"
+                },
+                {
+                    "name": "OpenRC",
+                    "type": "skill"
+                },
+                {
+                    "children": [
+                        {
+                            "name": "Debian",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "Fedora",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "ArchLinux",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "Gentoo",
+                            "type": "skill"
+                        }
+                    ],
+                    "name": "Distribution",
+                    "type": "folder"
+                }
+            ],
+            "name": "Linux",
+            "type": "folder"
+        },
+        {
+            "name": "Windows",
+            "type": "skill"
+        }
+    ],
+    "name": "My Skills",
+    "type": "folder"
+}
