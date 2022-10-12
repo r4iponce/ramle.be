@@ -21,7 +21,7 @@ var diagonal = d3.svg.diagonal().projection(function (d) {
 })
 
 var vis = d3
-    .select('.graphContainer')
+    .select('.graph-container')
     .append('svg:svg')
     .attr('width', width + margin[1] + margin[3])
     .attr('height', height + margin[0] + margin[2])
@@ -41,20 +41,11 @@ d3.json('/static/misc/tree.json', function (json) {
         }
     }
 
-    /*  function toggleAll(d) {
-      if (d.children) {
-        d.children.forEach(toggleAll);
-        toggle(d);
-      }
-    } */
     root.children.forEach(collapse)
     update(root)
 })
 
 function update(source) {
-    // var duration = d3.event && d3.event.altKey ? 5000 : 500;
-
-    // Compute the new tree layout.
     var nodes = tree.nodes(root).reverse()
 
     // Normalize for fixed-depth.
