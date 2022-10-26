@@ -1,5 +1,6 @@
 @import "var";
 
+
 .graph-container {
     width: max-content;
 
@@ -56,5 +57,16 @@
 
     100% {
         transform: scale(1.1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .graph-container {
+        width: max-content;
+
+        svg {
+            transform: translateX(-3%);
+        }
+
     }
 }

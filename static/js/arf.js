@@ -64,8 +64,6 @@ function update(source) {
         return d.id || (d.id = ++i)
     })
 
-    skillEmojis = ["😕", "😐", "🙂", "😄", "🤩"]
-
     // Enter any new nodes at the parent's previous position.
     var nodeEnter = node
         .enter()
