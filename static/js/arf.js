@@ -191,7 +191,7 @@ function update(source) {
         d.x0 = d.x
         d.y0 = d.y
     })
-    updateClickables()
+    // updateClickables()
 }
 
 // Toggle children.
