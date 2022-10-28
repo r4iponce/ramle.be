@@ -1,0 +1,28 @@
+name: Lighthouse
+on: pull_request
+jobs:
+    lighthouse-ci:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+            -   name: Set up Python 3.10
+                uses: actions/setup-python@v3
+                with:
+                    python-version: 3.10
+            -   name: Install dependencies
+                run: |
+                    python -m pip install --upgrade pip
+                    pip install -r requirements.txt
+                    apt install wget
+                    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+                    apt-get update
+                    apt-get -y install ./google-chrome-stable_current_amd64.deb
+            -   name: Build
+                run: |
+                    make build
+
+            -   name: Run Lighthouse against a static dist dir
+                uses: treosh/lighthouse-ci-action@v9
+                with:
+                    # no urls needed, since it uses local folder to scan .html files
+                    configPath: './lighthouserc.json'
