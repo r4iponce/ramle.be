@@ -12,7 +12,7 @@ stages:
     - lint
     - build
     - test
-    - deploy
+    - pages
 
 before_script:
     - apt-get update
@@ -54,15 +54,15 @@ lighthouse:
     artifacts:
         paths:
             - lighthouse-results/
-    dependencies:
+    needs:
         - build
 pages:
     script:
         - cp -r output/ public/
-    dependencies:
+    needs:
         - build
     artifacts:
         paths:
             - public
     only:
-        main
+        - main
