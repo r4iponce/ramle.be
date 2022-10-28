@@ -1,0 +1,60 @@
+default:
+    image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
+
+stages:
+    - lint
+    - build
+    - test
+    - deploy
+
+before_script:
+    - apt-get update
+    - apt-get -y install python3-pip
+    - python3 -m pip install --upgrade pip
+    - pip install -r requirements.txt
+
+pylint:
+    stage: lint
+    allow_failure: true
+    script:
+        - pylint $(git ls-files '*.py')
+
+stylelint:
+    stage: lint
+    allow_failure: true
+    script:
+        - npm install -g stylelint
+        - npm install -g stylelint-config-standard-scss
+        - stylelint $(git ls-files '*.scss')
+
+build:
+    stage: build
+    script:
+        - make build
+    artifacts:
+        paths:
+            - output/
+
+lighthouse:
+    image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
+    stage: test
+    script:
+        - lhci autorun --outputDir=public/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+        - mkdir public
+    artifacts:
+        paths:
+            - lighthouse-results/
+    dependencies:
+        - build
+deploy:
+    stage: deploy
+    script:
+        - cp -r output/ public/
+    dependencies:
+        - build
+    artifacts:
+        paths:
+            - public/
+    only:
+        - main
+
