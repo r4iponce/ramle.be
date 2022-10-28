@@ -57,6 +57,7 @@ lighthouse:
     needs:
         - build
 pages:
+    stage: pages
     script:
         - cp -r output/ public/
     needs:
