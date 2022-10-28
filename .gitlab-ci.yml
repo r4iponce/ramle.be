@@ -6,7 +6,6 @@ variables:
 cache:
     paths:
         - .cache/pip
-        - .cache/.npm/
         - /var/lib/apt/list
         - /var/cache/apt/
 stages:
@@ -34,7 +33,6 @@ stylelint:
     stage: lint
     allow_failure: true
     script:
-        - npm ci --cache .cache/.npm --prefer-offline
         - npm install -g stylelint
         - npm install -g stylelint-config-standard-scss
         - stylelint $(git ls-files '*.scss')
