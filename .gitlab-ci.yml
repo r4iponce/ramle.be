@@ -68,7 +68,7 @@ netlify-deploy:
     stage: deploy
     script:
         - npm install netlify-cli -g
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --debug --prod --dir output/
+        - netlify deploy --site 83c4cdbd-d522-4143-aa8a-bbc2b472ddf0 --auth $NETLIFY_AUTH_TOKEN --debug --prod --dir output/
     needs:
         - build
     only:
