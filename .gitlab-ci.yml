@@ -12,7 +12,7 @@ stages:
     - lint
     - build
     - test
-    - pages
+    - deploy
 
 before_script:
     - apt-get update
@@ -56,14 +56,13 @@ lighthouse:
             - lighthouse-results/
     needs:
         - build
-pages:
-    stage: pages
+
+netlify-deploy:
+    stage: deploy
     script:
-        - cp -r output/ public/
+        - npm install netlify-cli -g
+        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_TOKEN --dir output --prod
     needs:
         - build
-    artifacts:
-        paths:
-            - public
     only:
         - main
