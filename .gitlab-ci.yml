@@ -3,6 +3,8 @@ default:
 
 variables:
     PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+    NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
+
 cache:
     paths:
         - .cache/pip
@@ -67,7 +69,7 @@ netlify-deploy:
     stage: deploy
     script:
         - npm install netlify-cli -g
-        - netlify deploy --site 83c4cdbd-d522-4143-aa8a-bbc2b472ddf0 --dir output --prod
+        - netlify deploy --site 83c4cdbd-d522-4143-aa8a-bbc2b472ddf0 --dir output/ --prod
     needs:
         - build
     only:
