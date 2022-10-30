@@ -1,21 +1,17 @@
 default:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
-
 variables:
     PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
 cache:
     paths:
-        - .cache/pip
-        - /var/lib/apt/list
-        - /var/cache/apt/
+        - ".cache/pip"
+        - "/var/lib/apt/list"
+        - "/var/cache/apt/"
 stages:
-    - lint
     - build
     - test
+    - lint
     - deploy
-
-
 pylint:
     stage: lint
     allow_failure: true
@@ -54,12 +50,12 @@ build:
     artifacts:
         paths:
             - output/
-
 lighthouse:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
     stage: test
     script:
-        - lhci autorun --outputDir=public/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+        - lhci autorun --outputDir=public/ --collect.settings.chromeFlags="--no-sandbox"
+            || echo "LHCI failed!"
     artifacts:
         paths:
             - lighthouse-results/
@@ -77,3 +73,19 @@ netlify-deploy:
         - build
     only:
         - main
+
+netlify-test-deploy:
+    stage: deploy
+    before_script:
+        - npm install netlify-cli -g
+    script:
+        - cp _headers output/
+        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output/
+    needs:
+        - build
+    only:
+        - merge_requests
+
+include:
+    -   template: Security/Secret-Detection.gitlab-ci.yml
+
