@@ -1,17 +1,21 @@
 default:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
+
 variables:
     PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
 cache:
     paths:
         - ".cache/pip"
         - "/var/lib/apt/list"
         - "/var/cache/apt/"
+
 stages:
     - build
     - test
     - lint
     - deploy
+
 pylint:
     stage: lint
     allow_failure: true
@@ -68,7 +72,7 @@ netlify-deploy:
         - npm install netlify-cli -g
     script:
         - cp _headers output/
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir output/
+        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "$CI_COMMIT_SHORT_SHA : $CI_COMMIT_MESSAGE" --prod --dir output/
     needs:
         - build
     only:
@@ -80,7 +84,7 @@ netlify-test-deploy:
         - npm install netlify-cli -g
     script:
         - cp _headers output/
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output/
+        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "Merge : $CI_MERGE_REQUEST_ID" --dir output/
     needs:
         - build
     only:
