@@ -68,10 +68,10 @@ lighthouse:
 
 netlify-deploy:
     stage: deploy
-    script:
-        - echo $NETLIFY_SITE_ID
+    before_script:
         - npm install netlify-cli -g
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --debug --prod --dir output/
+    script:
+        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir output/
     needs:
         - build
     only:
