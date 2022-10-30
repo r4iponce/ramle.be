@@ -71,6 +71,7 @@ netlify-deploy:
     before_script:
         - npm install netlify-cli -g
     script:
+        - cp _headers output/
         - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir output/
     needs:
         - build
