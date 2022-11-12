@@ -5,9 +5,33 @@
                 {
                     "name": "Secure Boot",
                     "type": "skill"
+                },
+                {
+                    "name": "Monitoring (prometheus, grafana)",
+                    "type": "skill"
                 }
             ],
-            "name": "Sécurité",
+            "name": "Security",
+            "type": "folder"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "name": "gitlab CI/CD",
+                            "type": "skill"
+                        },
+                        {
+                            "name": "Github Actions",
+                            "type": "skill  "
+                        }
+                    ],
+                    "name": "GIT",
+                    "type": "folder"
+                }
+            ],
+            "name": "VCS",
             "type": "folder"
         },
         {
@@ -19,11 +43,11 @@
                             "type": "skill"
                         },
                         {
-                            "name": "Statique",
+                            "name": "Static",
                             "type": "skill"
                         }
                     ],
-                    "name": "Routage",
+                    "name": "Routing",
                     "type": "folder"
                 },
                 {
@@ -39,6 +63,10 @@
                         {
                             "name": "Apache",
                             "type": "skill"
+                        },
+                        {
+                            "name": "Caddy",
+                            "type": "skill"
                         }
                     ],
                     "name": "Reverse Proxy",
@@ -51,11 +79,11 @@
                             "type": "skill"
                         },
                         {
-                            "name": "Résolveur",
+                            "name": "Resolver",
                             "type": "skill"
                         },
                         {
-                            "name": "autoritaire",
+                            "name": "Authoritative",
                             "type": "skill"
                         },
                         {
@@ -79,7 +107,7 @@
                     "type": "skill"
                 }
             ],
-            "name": "Réseau",
+            "name": "Network",
             "type": "folder"
         },
         {
@@ -89,7 +117,7 @@
                     "type": "skill"
                 },
                 {
-                    "name": "systemd",
+                    "name": "Systemd",
                     "type": "skill"
                 },
                 {
@@ -124,6 +152,10 @@
         },
         {
             "name": "Windows",
+            "type": "skill"
+        },
+        {
+            "name": "Windows Server",
             "type": "skill"
         }
     ],
