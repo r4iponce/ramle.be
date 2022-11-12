@@ -72,7 +72,7 @@ netlify-deploy:
         - npm install netlify-cli -g
     script:
         - cp _headers output/
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "$CI_COMMIT_SHORT_SHA : $CI_COMMIT_MESSAGE" --prod --dir output/
+        - 'netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "$CI_COMMIT_SHORT_SHA : $CI_COMMIT_MESSAGE" --prod --dir output/'
     needs:
         - build
     only:
@@ -84,7 +84,7 @@ netlify-test-deploy:
         - npm install netlify-cli -g
     script:
         - cp _headers output/
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "Merge : $CI_MERGE_REQUEST_ID" --dir output/
+        - 'netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "Merge \: $CI_MERGE_REQUEST_ID" --dir output/'
     needs:
         - build
     only:
