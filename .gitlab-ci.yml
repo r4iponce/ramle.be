@@ -29,6 +29,7 @@ pylint:
     - pip install -r requirements.txt
   script:
     - pylint $(git ls-files '*.py')
+  needs: []
 
 stylelint:
   stage: lint
@@ -38,14 +39,15 @@ stylelint:
     - npm install -g stylelint-config-standard-scss
   script:
     - stylelint $(git ls-files '*.scss')
+  needs: []
 
-lint-dockerfile:
+hadolint:
   stage: lint
   image: hadolint/hadolint:latest-debian
   script:
     - hadolint --no-fail */Dockerfile
   allow_failure: true
-
+  needs: []
 
 build:
   stage: build
@@ -77,6 +79,7 @@ lighthouse:
 
 docker-deploy:
   stage: deploy
+  image: gcr.io/kaniko-project/executor:debug
   before_script:
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
@@ -90,8 +93,8 @@ docker-deploy:
       --force
   tags:
     - AMD64
-
+  needs:
+    - build
 
 include:
   - template: Security/Secret-Detection.gitlab-ci.yml
-
