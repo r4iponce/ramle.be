@@ -3,9 +3,9 @@
 body {
     font-family: Poppins, serif;
     font-weight: $font-regular-weight;
-    background-color: $bg-light;
+    background-color: var(--bg-color);
     margin: var(--margin);
-    color: $grey-light;
+    color: var(--grey);
 }
 
 h1,
@@ -15,7 +15,7 @@ h2 {
 }
 
 h1 {
-    color: $grey-light;
+    color: var(--grey);
     font-size: var(--h1-font-size);
 }
 
@@ -42,7 +42,7 @@ p {
 }
 
 a {
-    color: $grey-light;
+    color: var(--grey);
 }
 
 a:hover {
@@ -56,16 +56,16 @@ footer {
 
     div {
         margin: var(--footer-div-margin);
-        background-color: $purple-light;
+        background-color: var(--purple);
         border-radius: 10px;
         width: 60px;
         height: 60px;
-        box-shadow: $grey-light 0 4px 12px;
+        box-shadow: var(--grey) 0 4px 12px;
 
         svg {
             margin: 50% 0 0 50%;
             transform: translate(-50%, -50%);
-            color: $grey-light;
+            color: var(--grey);
         }
     }
 

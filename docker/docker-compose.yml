@@ -1,0 +1,5 @@
+services:
+  web:
+    image: hub.ilearned.eu/elmar/ramle.be
+    ports:
+      - "8000:80"

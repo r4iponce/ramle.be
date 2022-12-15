@@ -22,20 +22,21 @@
             transform: translate(125px, 0);
         }
 
+        //noinspection ALL
         .node {
             cursor: pointer;
 
             circle {
                 cursor: pointer;
                 fill: #161638;
-                stroke: $purple-light;
+                stroke: var(--purple);
                 stroke-width: 2.5px;
             }
 
             text {
-                color: $grey-light;
+                color: var(--grey);
                 font-size: 19px;
-                fill: $grey-light;
+                fill: var(--grey);
                 font-weight: 500;
             }
         }
@@ -43,7 +44,7 @@
 
     path.link {
         fill: none;
-        stroke: $purple-light;
+        stroke: var(--purple);
         opacity: 0.2;
         stroke-width: 3px;
     }

@@ -1,95 +1,97 @@
 default:
-    image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
+  image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
 
 variables:
-    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 cache:
-    paths:
-        - ".cache/pip"
-        - "/var/lib/apt/list"
-        - "/var/cache/apt/"
+  paths:
+    - ".cache/pip"
+    - "/var/lib/apt/list"
+    - "/var/cache/apt/"
 
 stages:
-    - build
-    - test
-    - lint
-    - deploy
+  - build
+  - test
+  - lint
+  - deploy
 
 pylint:
-    stage: lint
-    allow_failure: true
-    before_script:
-        - apt-get update
-        - apt-get -y install python3-pip
-        - pip3 install virtualenv
-        - virtualenv venv
-        - source venv/bin/activate
-        - python3 -m pip install --upgrade pip
-        - pip install -r requirements.txt
-    script:
-        - pylint $(git ls-files '*.py')
+  stage: lint
+  allow_failure: true
+  before_script:
+    - apt-get update
+    - apt-get -y install python3-pip
+    - pip3 install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+    - python3 -m pip install --upgrade pip
+    - pip install -r requirements.txt
+  script:
+    - pylint $(git ls-files '*.py')
 
 stylelint:
-    stage: lint
-    allow_failure: true
-    before_script:
-        - npm install -g stylelint
-        - npm install -g stylelint-config-standard-scss
-    script:
-        - stylelint $(git ls-files '*.scss')
+  stage: lint
+  allow_failure: true
+  before_script:
+    - npm install -g stylelint
+    - npm install -g stylelint-config-standard-scss
+  script:
+    - stylelint $(git ls-files '*.scss')
+
+lint-dockerfile:
+  stage: lint
+  image: hadolint/hadolint:latest-debian
+  script:
+    - hadolint --no-fail */Dockerfile
+  allow_failure: true
+
 
 build:
-    stage: build
-    before_script:
-        - apt-get update
-        - apt-get -y install python3-pip
-        - pip3 install virtualenv
-        - virtualenv venv
-        - source venv/bin/activate
-        - python3 -m pip install --upgrade pip
-        - pip install -r requirements.txt
-    script:
-        - make build
-    artifacts:
-        paths:
-            - output/
+  stage: build
+  before_script:
+    - apt-get update
+    - apt-get -y install python3-pip
+    - pip3 install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+    - python3 -m pip install --upgrade pip
+    - pip install -r requirements.txt
+  script:
+    - make build
+  artifacts:
+    paths:
+      - output/
+
 lighthouse:
-    image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
-    stage: test
-    script:
-        - lhci autorun --outputDir=public/ --collect.settings.chromeFlags="--no-sandbox"
-            || echo "LHCI failed!"
-    artifacts:
-        paths:
-            - lighthouse-results/
-    needs:
-        - build
+  image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
+  stage: test
+  script:
+    - lhci autorun --outputDir=public/ --collect.settings.chromeFlags="--no-sandbox"
+      || echo "LHCI failed!"
+  artifacts:
+    paths:
+      - lighthouse-results/
+  needs:
+    - build
 
-netlify-deploy:
-    stage: deploy
-    before_script:
-        - npm install netlify-cli -g
-    script:
-        - cp _headers output/
-        - 'netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "$CI_COMMIT_SHORT_SHA : $CI_COMMIT_MESSAGE" --prod --dir output/'
-    needs:
-        - build
-    only:
-        - main
+docker-deploy:
+  stage: deploy
+  before_script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+    - cp -r output/ docker/output/
+  script:
+    - >-
+      /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/docker/Dockerfile"
+      --destination "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}"
+      --force
+  tags:
+    - AMD64
 
-netlify-test-deploy:
-    stage: deploy
-    before_script:
-        - npm install netlify-cli -g
-    script:
-        - cp _headers output/
-        - 'netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "Merge \: $CI_MERGE_REQUEST_ID" --dir output/'
-    needs:
-        - build
-    only:
-        - merge_requests
 
 include:
-    -   template: Security/Secret-Detection.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
 
