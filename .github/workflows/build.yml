@@ -65,3 +65,21 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  lighthouse:
+    needs: build-site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download build result
+        uses: actions/download-artifact@v3
+        with:
+          name: output
+          path: output
+
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          configPath: './lighthouserc.json'
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
