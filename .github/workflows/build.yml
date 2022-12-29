@@ -1,0 +1,29 @@
+name: Build site
+
+on:
+  push:
+    branches: [ 'main' ]
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Build
+        run: |
+          make build
+      - name: Upload build result
+        uses: actions/upload-artifact@v3
+        with:
+          name: output
+          path: output/
