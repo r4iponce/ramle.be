@@ -39,8 +39,3 @@ repos:
           # stylelint itself needs to be here when using additional_dependencies.
           - stylelint
           - stylelint-config-standard-scss
-
-  - repo: https://github.com/hadolint/hadolint
-    rev: v2.12.0
-    hooks:
-      - id: hadolint
