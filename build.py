@@ -15,15 +15,16 @@ def prepare() -> None:
 
 
 def compile_sass() -> None:
-    sass.compile(dirname=('static/sass',
-                          'output/static/css'), output_style='compressed')
+    sass.compile(
+        dirname=("static/sass", "output/static/css"), output_style="compressed"
+    )
 
 
 def render_all() -> None:
-    with open("./data.yml", 'r', encoding="utf-8") as data:
+    with open("./data.yml", "r", encoding="utf-8") as data:
         try:
             data = yaml.safe_load(data)
-            env = Environment(loader=FileSystemLoader('templates/'))
+            env = Environment(loader=FileSystemLoader("templates/"))
 
             template = env.get_template("index.html")
             rendered_template = template.render(data)
