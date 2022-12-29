@@ -77,7 +77,7 @@ jobs:
           name: output
           path: output
 
-      - name: Audit URLs using Lighthouse
+      - name: Lighthouse test output/
         uses: treosh/lighthouse-ci-action@v9
         with:
           configPath: './lighthouserc.json'
