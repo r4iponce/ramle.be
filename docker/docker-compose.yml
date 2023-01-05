@@ -1,5 +1,6 @@
 services:
   web:
+    restart: always
     image: ghcr.io/r4iponce/ramle.be:main
     ports:
       - "[::]:8000:80"
